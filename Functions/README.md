@@ -15,6 +15,7 @@ make_omelette(bacon) -
 # Local and global variables
 Local Variable:
 - Variable created in the functions.
+
 Global Variable:
 - Variable created in the main body of the program, outside of any functions.
 Functions search for variables locally first. If the variable is not in the local scope, it expands the search to the global scope.
