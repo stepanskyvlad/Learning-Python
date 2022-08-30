@@ -20,4 +20,5 @@ Global Variable:
 - Variable created in the main body of the program, outside of any functions.
 Functions search for variables locally first. If the variable is not in the local scope, it expands the search to the global scope.
 
-
+# About parentheses after functions
+The thing to remember is that when we put parantheses after a function, we're referring to the result of the functions instead of the function itself. When we want to refer to the function itself, we simply use the functions's name without any parantheses or arguments after it.
