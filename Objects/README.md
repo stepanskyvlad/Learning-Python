@@ -17,15 +17,11 @@ Data Type - An attribute of data that describes the values it can have and how t
 Numbers,  Charactares, Booleans
 
 Numbers:
-
-Signed:
-
-• Positive and negative values
-• Example: 16-bit short range: -32,768 to 32,767
-
-Unsigned:
-
-•Only positive values
-•Example: 16-bit short range: 0 to 65,535
+  Signed:
+    • Positive and negative values
+    • Example: 16-bit short range: -32,768 to 32,767    
+  Unsigned:
+    • Only positive values
+    • Example: 16-bit short range: 0 to 65,535
 
 # Data Structures
