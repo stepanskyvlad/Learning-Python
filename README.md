@@ -1,2 +1,2 @@
 ﻿# Learning-Python
-There are useful examples of Python code.
+There are useful examples of Python sripts.
