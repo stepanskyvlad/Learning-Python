@@ -48,9 +48,9 @@ Array can store elements of only one data type but List can store the elements o
 List cannot manage arithmetic operations. Array can manage arithmetic operations.
 To use an array in Python, you'll need to import this data structure from the NumPy package or the array module.
 
-'''python
+```python
 array = np.array([3, 6, 9, 12])
 division = array/3
 print(division)
 print (type(division))
-'''
+```
