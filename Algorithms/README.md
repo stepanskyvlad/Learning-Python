@@ -8,3 +8,10 @@
 ##### Common Big-O Terms
 ![](img1.png)
 
+# Sorting Data
+## The Bubble Sort
+- Very simple to understand and implement
+- Performance: O(n^2)
+  - For loops inside of for loops are usually n^2
+- Other sorting algorithms are generally much better
+- Not considered to be a practical solution
