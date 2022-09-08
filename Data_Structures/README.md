@@ -38,11 +38,11 @@ Numerical data type:
 - Strings
 - Other data Structures
 
-## Data Structures
+# Data Structures
 Data Structure - A collection with a defined way of accessing and storing items. "A container that holds data."
-### Strings
+## Strings
 Most programming languages have a data type called a string, which is used for data values that are made up of ordered sequences of characters, such as "hello world". A string can contain any sequence of characters, visible or invisible, and characters may be repeated.
-### Arrays
+## Arrays
 Collection of elements, where each item is identified by an index or key.
 Array can store elements of only one data type but List can store the elements of different data types too. Hence, Array stores homogeneous data values, and the list can store heterogeneous data values.
 List cannot manage arithmetic operations. Array can manage arithmetic operations.
@@ -95,8 +95,23 @@ print(X[:, -1]) # last column
 #### Jagged arrays
 A jagged array can have elements of different dimensions and sizes.
 For example, with jagged array, the number of columns is not fixed, meaning the inner arrays can be any length we'd like.
-### Linked Lists
+
+Array Operations:
+- Calculate item index: O(1)
+- Insert or delete item at beginning: O(n)
+- Insert or delete item in middle: O(n)
+- Insert or delete item at end: O(1)
+## Linked Lists
 A linked list is a sequence of data structures, which are connected together via links. Linked List is a sequence of links which contains items. Each link contains a connection to another link. Linked list is the second most-used data structure after array.
+- Collection of data elements, called nodes
+- Contain reference to the next node in the list
+- Hold whatever data the application needs
+- Elements can be easily inserted and removed
+- Underlying memory doesn't need to be reorganized
+- Can't do constant-time access
+- Item lookup is linear in time complexity: O(n)
+
+Also, there are doubly linked list. Each data item has a reference to both the previous and next items that are its neighbors.
 
 Pros and cons:
 - Access: first item - O(1), last item - O(n).
@@ -106,13 +121,25 @@ Pros and cons:
 - Delete: O(N) in the worst cases
 
 Merge sort is typically preferred for linked lists.
-### Stacks and Queues
+## Stacks and Queues
 *_Stacks_* operate on a principle called "last in, first out or LIFO". 
 When adding an item to the stack, we use the terminology 'push'. When removing an item we use the word pop.
 
+Pushing and popping elements - O(1)
+
 *_Queues_* operate on a principle called "first in, first out or FIFO". Enqueue is when an item is added to a list. Dequeue is when an item is removed from the list.
 peek() - see the first item in the queue without removing it.
-### Hash-Based Data Structures
+
+To enqueue or to dequeue an element - O(1)
+
+Using:
+- Stack
+  - Expression processing
+  - Backtracking: browser back stack, for example
+- Queue
+  - Order processing
+  - Messaging
+## Hash-Based Data Structures
 **Associated array rules:**
 - Key-value pairs are bound together
 - Each key must be unique
@@ -126,6 +153,7 @@ Pros:
 - Deletion: O(1)
 
 A *_hash table_* is an implementation of the associative array abstract data structure.
+For small datasets, arrays are usually more efficient. Hash tables don't order entries in a predictable way.
 ```python
 states_to_capital = {}
 
@@ -134,7 +162,7 @@ states_to_capital['New York'] = 'Albany'
 
 print(states_to_capital['New York'])
 ```
-### Trees and Graphs
+## Trees and Graphs
 Similar to linked lists, hash maps, and other data structures, a **set** is an abstract data type.
 Set is:
 - A collection of unique items.
