@@ -38,6 +38,7 @@ factorial(3)          # 1st call with 3
 6                     # return from 1st call
 ```
 Let's look at an image that shows a step-by-step process of what is going on:
+
 ![](recursive_function.png)
 
 Our recursion ends when the number reduces to 1. This is called the base condition.
