@@ -13,3 +13,7 @@ def create_multiplier(a):
 
 triple = create_multiplier(3)
 print(triple(5))
+
+# sorting using lambda
+my_list = [{'num': 3}, {'num': 2}, {'num': 1}]
+print(sorted(my_list, key=lambda x: x['num']))
