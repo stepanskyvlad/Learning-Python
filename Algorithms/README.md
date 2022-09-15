@@ -1,3 +1,11 @@
+# Algorithms
+#### 1. Brute Force (Linear Search, Selection Sort)
+#### 2. Divide and Conquer (Merge Sort, Binary Search)
+#### 3. Dynamic Programming (Up-bottom and and bottom-up)
+#### 4. Greedy Algorithms (for optimization)
+#### 5. Backtracking (Branch and Bound)
+#### 6. Local Search
+#### 7. Transform and Conquer
 # Understanding Algorithm Performance
 - Measure how an algorithm responds to dataset size
 - Big-O notation
