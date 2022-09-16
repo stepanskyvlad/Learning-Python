@@ -40,7 +40,8 @@ def get_average_salary(salaries):
 
 
 average_developer_salary = get_average_salary([get_salary(x) for x in employees if is_developer(x)])
-print(average_developer_salary)
+print(average_developer_salary)  # 95000.0
+
 
 average_non_developer_salary = get_average_salary([get_salary(x) for x in employees if not is_developer(x)])
-print(average_non_developer_salary)
+print(average_non_developer_salary)  # 80000.0

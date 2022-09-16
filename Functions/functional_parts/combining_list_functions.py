@@ -61,5 +61,5 @@ average_developer_salary = total_developer_salaries / len(developers_salaries)
 total_non_developer_salaries = reduce(get_sum, non_developers_salaries)
 average_non_developer_salary = total_non_developer_salaries / len(non_developers_salaries)
 
-print(average_developer_salary)
-print(average_non_developer_salary)
+print(average_developer_salary)  # 95000.0
+print(average_non_developer_salary)  # 80000.0
