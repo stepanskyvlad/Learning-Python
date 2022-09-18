@@ -15,7 +15,7 @@
   - "O" indicates the order of operation: time scale to perform an operation
 - Many algorithms and data structures have more than one Big O
   - Inserting data, searching for data, deleting data, etc.
-##### Common Big-O Terms
+## Common Big-O Terms
 ![](img1.png)
 
 - O(n^3) - Cubic
@@ -49,6 +49,89 @@ How to determine which big-O class an algorithm belongs to?
   - n + 100 operations is simplified to O(n), and so is 500n + 100
   - if we have n^2 + 40n + 400 basic operations, we classify the time complexity as O(n^2)
 
+## Examples of time complexity
+### O(1) Complexity:
+A simple statement:
+```python
+n = 100
+```
+The simple statement takes O(1) time.
+### O(n) Complexity:
+For Loop:
+```python
+for i in range(n):
+    print(n)
+```
+The output statement occurs n times, so the loop is O(n).
+
+While loop:
+```python
+count = 0
+while count < n:
+    count += 1
+```
+This while loop takes O(n) time. The smaller, constant time operation of assignment (count=0) is ignored.
+```python
+n = 100
+for i in range(n, 0, -5):  # i ranges from n to 1 in steps of 5.
+    print(i, end=', ')  # Output statement occurs n/5 times
+```
+Output:
+```
+100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5,
+```
+If the for loop counter increases or decreases by a constant, the cost is O(n).
+### O(log(n)) Complexity:
+```python
+n = 100
+while n > 0:
+    n = n // 2
+    print(n) # Output statement occurs approximately log2(n) times.
+```
+Output:
+``` 
+50, 25, 12, 6, 3, 1, 0, 
+```
+If a loop counter increases or decreases by a multiple, the cost is O(log(n)).
+### O(n^2) Complexity:
+```python
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+```
+Here, the output statement occurs n*n times, so the loop is O(n^2).
+## Space Complexity
+```python
+def my_sum(lst):
+    total = 0
+    for i in range(len(lst)):
+        total += lst[i]
+    return total
+
+my_list = [5, 4, 3, 2, 1]
+print(my_sum(my_list))
+```
+Output:
+```
+15
+```
+Well, aside from the input, we only have two variables used in the function, we have "total" and we have "i". Regardless of the contents of the list, we are always only going to have these same two variables, each of which contains a single number. While we add to the total variable, we don't create or add any new variables. Since we are discussing space, not time complexity, we are not interested in the number of operations. So the space complexity is O(1) here. 
+```python
+def double(lst):
+    new_list = []
+    for i in range(len(lst)):
+        new_list.append(lst[i] * 2)
+    return new_list
+
+
+my_list = [5, 4, 3, 2, 1]
+print(double(my_list))
+```
+Output:
+```
+[10, 8, 6, 4, 2]
+```
+The longer the list passed to the function is the longer the new list that gets returned is. This means that the function's required space will increase depending on the length of the input list. Hence the space requirement increases as the size of the input list increases. So the function has O(n) space complexity.
 # Sorting Data
 ## The Bubble Sort
 - Very simple to understand and implement
