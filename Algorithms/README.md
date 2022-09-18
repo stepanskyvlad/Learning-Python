@@ -1,8 +1,28 @@
-# Algorithms
+# Algorithms:
 #### 1. Brute Force (Linear Search, Selection Sort)
 #### 2. Divide and Conquer (Merge Sort, Binary Search)
+  - **Decrease and conquer.**
+  The decrease and conquer technique is similar to divide and conquer, except instead of partitioning a problem into multiple subproblems of smaller size, we use some technique to reduce our problem into a single problem that is smaller than the original.
 #### 3. Dynamic Programming (Up-bottom and and bottom-up)
 #### 4. Greedy Algorithms (for optimization)
+Features:
+- Make locally optimal choices
+- Do not revisit choices once made
+
+Advantages:
+- Often quite fast
+- Relatively easy to implement
+
+Disadvantages:
+- Shortsighted - may not provide optimal solution
+- May fail on some instances of a problem
+
+Dijkstra's Algorithm:
+- Used to find the shortest path in a weighted graph
+- It is optimal
+- It uses a greedy approach
+- Weights must be positive to guarantee correct results
+- It finds the shortest path to every node from the origin
 #### 5. Backtracking (Branch and Bound)
 #### 6. Local Search
 #### 7. Transform and Conquer
