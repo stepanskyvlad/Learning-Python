@@ -34,7 +34,7 @@ def cause_error(error_type):
 
 # cause some problems
 try:
-    cause_error('yard')
+    cause_error('plumbing')
 
 except ElectricalError as e:
     print(e)
