@@ -1,8 +1,37 @@
 # Algorithms:
 #### 1. Brute Force (Linear Search, Selection Sort)
 #### 2. Divide and Conquer (Merge Sort, Binary Search)
-  - **Decrease and conquer.**
-  The decrease and conquer technique is similar to divide and conquer, except instead of partitioning a problem into multiple subproblems of smaller size, we use some technique to reduce our problem into a single problem that is smaller than the original.
+##### Decrease and conquer:
+The decrease and conquer technique is similar to divide and conquer, except instead of partitioning a problem into multiple subproblems of smaller size, we use some technique to reduce our problem into a single problem that is smaller than the original.
+
+At each step of the algorithm, the problem is reduced to a smaller version of the same problem, until a solution is found (or found not to be possible).
+
+Classic Examples of Decrease and Conquer:
+- Binary Search
+- Euclid's algorithm
+- Depth-first search
+- Breadth-first search
+- Insertion sort and selection sort
+
+Decrease by:
+  - Decrease by a Constant:
+    - This is often by a constant of one:
+      - Insertion sort
+      - Graph search algorithms: DFS, BFS
+  - Decrease by a Constant Factor:
+    - Most commonly by a factor of two:
+      - Binary search
+      - Fake-coin detection problems
+  - Variable-Size Decrease:
+    - The Euclidean algorithm, where the amount of decrease depends on the values given.
+    
+Binary search is often classified as "divide and conquer," but technically it is "decrease and conquer," as the search space is reduced by a factor of 2 at each step.
+
+Binary Search Time Complexity:
+- Binary search is O(log n)
+- This is very efficient, but data must be sorted
+- The best sorting algorithms generally have O(n log n) time complexity.
+- So binary search only makes sense if the data will be searched multiple times. 
 #### 3. Dynamic Programming (Up-bottom and and bottom-up)
 #### 4. Greedy Algorithms (for optimization)
 Features:
