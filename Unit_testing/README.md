@@ -230,7 +230,9 @@ PASSED
     - Yield:
       - When the "yield" keyword is used the code after the yield is executed after the fixture goes out of scope.
       - The "yield" keyword is a replacement for the return keyword so any return values are also specified in the yield statement.
-
+    - Addfinalizer:
+      - With the addfinalizer method a teardown method is defined added via the request-context's addfinalizer method.
+      - Multiple finalization functions can be specified.
 ```python
 import pytest
 
@@ -240,10 +242,6 @@ def setup():
     yield 
     print("Teardown!")
 ```
-    - Addfinalizer:
-      - With the addfinalizer method a teardown method is defined added via the request-context's addfinalizer method.
-      - Multiple finalization functions can be specified.
-
 ```python
 import pytest
 
@@ -254,3 +252,156 @@ def setup(request):
         print("Teardown!")
     request.addfinalizer(teardown)
 ```
+A practical example
+```python
+import pytest
+
+
+@pytest.fixture()
+def setup1():
+    print("\nSetup 1")
+    yield
+    print("\nTeardown 1")
+
+
+@pytest.fixture()
+def setup2(request):
+    print("\nSetup 2")
+
+    def teardown_a():
+        print("\nTeardown A")
+
+    def teardown_b():
+        print("\nTeardown B")
+
+    request.addfinalizer(teardown_a)
+    request.addfinalizer(teardown_b)
+
+
+def test1(setup1):
+    print("Executing test1!")
+    assert True
+
+
+def test2(setup2):
+    print("Executing test2!")
+    assert True
+```
+Output:
+```
+test_fixtures2.py::test1
+Setup 1
+Executing test1!
+PASSED
+Teardown 1
+
+test_fixtures2.py::test2
+Setup 2
+Executing test2!
+PASSED
+Teardown B
+
+Teardown A
+```
+##### Test Fixture Return Objects and Params
+- Test Fixtures can optionally return data which can be used in the test.
+- The optional "params" array argument in the fixture decorator can be used to specify the data returned to the test.
+- When a "params" argument is specified then the test will be called one time with each value specified.
+
+An example:
+```python
+import pytest
+
+@pytest.fixture(params=[1, 2, 3])
+def setup(request):
+    retVal = request.param
+    print("\nSetup! retVal = {}".format(retVal))
+    return retVal
+
+
+def test1(setup):
+    print("\nsetup = {}".format(setup))
+    assert True
+```
+Output:
+```
+test_fixtures3.py::test1[1]
+Setup! retVal = 1
+
+setup = 1
+PASSED
+test_fixtures3.py::test1[2]
+Setup! retVal = 2
+
+setup = 2
+PASSED
+test_fixtures3.py::test1[3]
+Setup! retVal = 3
+
+setup = 3
+PASSED
+```
+#### Assert statements and exceptions
+##### Using the assert statement
+- Pytest allows the use of the built in python assert statement for performing verifications in a unit test.
+- Comparison on all of the python data types can be performed using the standard comparison operators: <, >, <=, >=, ==, and !=
+- Pytest expands on the message returned from assert failures to provide more context in the test results. 
+```python
+def test_int_assert():
+    assert 1 == 1
+
+def test_str_assert():
+    assert 'str' == 'str'
+
+def test_float_assert():
+    assert 1.0 == 1.0
+
+def test_dict_assert():
+    assert {"1": 1} == {"1": 1}
+```
+##### Comparing Floating Point Values
+- Validating floating point values can sometimes be difficult as internally the value is a binary fractions (i.e. 1/3 is internally 0.33333333...)
+- Because of this some floating point comparisons that would be expected to pass fail.
+- The pytest "approx" function can be used to verify that two floating point values are "approximately" equivalent to each other with a default tolerance of le-6.
+
+```python
+# Failing Test!!!
+from pytest import approx
+
+def test_bad_float_compare():
+    assert (0.1 + 0.2) == 0.3
+
+# Passing Test!!!
+def test_good_float_compare():
+    val = 0.1 + 0.2
+    assert val == approx(0.3)
+```
+##### Verifying Exceptions
+- In some cases we want verify that a function throws an exception under certain conditions.
+- Pytest provides the "raises" helper to perform this verification using the "with" keyword.
+- If the specified exception is not raised in the code block specified after the "raises" line then the test fails.
+```python
+from pytest import raises
+
+def raisesValueException():
+    raise ValueError
+
+def test_exception():
+    with raises(ValueError):
+        raisesValueException()
+```
+#### Command line arguments: pytest
+##### Specifying what tests should run
+- By default PyTest will automatically discover and run all tests in all properly named modules from the current working directory and sub-directories
+- There are several command line arguments for controlling which discovered tests actually are executed.
+  - moduleName - Simply specify the module name to run only the tests in that module.
+  - DirectoryName/ - Runs any tests found in the specified directory.
+  - -k "expression" - Matches tests found that match the evaluatable expression in the string. The string values can include module, class and function names (i.e. "TestClass and TestFunction").
+  - -m "expression" - Matches tests found that have a "pytest.mark" decorator that matches the specified expression.
+
+##### Useful command line arguments
+- -v: Report in verbose mode.
+- -q: Run in quiet mode (can be helpful when running hundreds or thousands of tests at once).
+- -s : Don't capture console output (show print statements on the console).
+- --ignore : Ignore the specified path when discovering tests.
+- --maxfail: Stop after the specified number of failures.
