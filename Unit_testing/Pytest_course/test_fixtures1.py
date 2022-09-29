@@ -13,3 +13,4 @@ def test1():
 
 def test2():
     print("Executing test2!")
+    assert True
