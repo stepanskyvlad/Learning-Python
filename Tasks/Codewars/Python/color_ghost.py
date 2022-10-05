@@ -6,7 +6,8 @@ import random
 
 
 class Ghost(object):
-    color = random.choice(['white', 'red', 'yellow', 'purple'])
+    def __init__(self):
+        self.color = random.choice(['white', 'red', 'yellow', 'purple'])
 
 
 ghost = Ghost()
