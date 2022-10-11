@@ -2,14 +2,6 @@
 # You don't need to validate the form of the Roman numeral.
 # So 1990 is rendered "MCMXC" (1000 = M, 900 = CM, 90 = XC) and 2008 is rendered "MMVIII" (2000 = MM, 8 = VIII).
 # The Roman numeral for 1666, "MDCLXVI", uses each letter in descending order.
-# Symbol    Value
-# I          1
-# V          5
-# X          10
-# L          50
-# C          100
-# D          500
-# M          1,000
 def solution(roman):
     value = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
     result, last = 0, 0
@@ -24,7 +16,16 @@ def solution(roman):
     return result
 
 
-print(solution("MCMXC"))
+# another solution
+def parse_roman(roman):
+    value = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
+    result = 0
+    for i, c in enumerate(roman):
+        if i+1 < len(roman) and value[c] < value[roman[i+1]]:
+            result -= value[c]
+        else:
+            result += value[c]
+    return result
 
 
 def old_solution(roman):
@@ -67,3 +68,9 @@ def old_solution(roman):
             result += symbols[roman[count]]
             count += 1
     return result
+
+
+if __name__ == '__main__':
+    print(parse_roman("MCMXC"))  # 1990
+    print(parse_roman("MMVIII"))  # 2008
+    print(parse_roman("MDCLXVI"))  # 1666
