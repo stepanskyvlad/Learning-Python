@@ -34,7 +34,7 @@ def count_three_sum(ints, thread_name="t"):
 if __name__ == "__main__":
     print('started main')
 
-    ints = read_ints("data\\1Kints.txt")
+    ints = read_ints("../data\\1Kints.txt")
 
     # створюємо потік
     t = threading.Thread(target=count_three_sum, args=(ints,))

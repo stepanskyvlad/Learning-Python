@@ -26,7 +26,7 @@ def run_sequentially(ints):
 
 if __name__ == "__main__":
     print('started main')
-    ints = read_ints('data\\1Kints.txt')
+    ints = read_ints('../data\\1Kints.txt')
 
     run_in_parallel(ints)
     run_sequentially(ints)
