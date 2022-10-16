@@ -14,11 +14,11 @@ def sort_rule(word):
     return numeric
 
 
-with open('UkrWords.txt', 'r', encoding='utf-8-sig') as file:
+with open('UnsortedUkrWords.txt', 'r', encoding='utf-8-sig') as file:
     unsorted_list = [word.strip() for word in file.readlines()]
 
 sorted_list = sorted(unsorted_list, key=sort_rule)
 
 with open('SortedUkrWords.txt', 'w', encoding='utf-8-sig') as write_file:
     for word in sorted_list:
-        write_file.write(f"{word}\n")
+        write_file.write(f"{word.lower()}\n")
