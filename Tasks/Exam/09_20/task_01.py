@@ -7,4 +7,4 @@ def probability(lst, num):
     return per
 
 
-print(probability([7, 4, 17, 14, 12, 3], 16))
+print(probability([7, 4, 17, 14, 12], 16))
