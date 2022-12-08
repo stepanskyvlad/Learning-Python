@@ -41,7 +41,7 @@ def fibonacci_of(n):
     return cache[n]
 
 
-print([fibonacci_of(n) for n in range(10)])
+print([fibonacci_of(n) for n in range(11)])
 
 
 # my solution
