@@ -30,4 +30,4 @@ def tribonacci_3(signature, n):
     return output
 
 
-print(tribonacci([1, 1, 1], 6))
+print(tribonacci_1([1, 1, 1], 10))
