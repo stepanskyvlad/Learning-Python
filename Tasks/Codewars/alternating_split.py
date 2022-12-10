@@ -58,9 +58,5 @@ def encrypt_2(s, n):
     return s
 
 
-
-
-
 print(encrypt("0123456", 2))
 print(decrypt("3041526", 2))
-print('abcd'[4:5])
