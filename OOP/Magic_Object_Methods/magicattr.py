@@ -1,4 +1,4 @@
-# Python Object Oriented Programming by Joe Marini course example
+# Python Object-Oriented Programming by Joe Marini course example
 # Using the __str__ and __repr__ magic methods
 
 
