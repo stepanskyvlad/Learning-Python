@@ -1,7 +1,7 @@
 ﻿# Learning-Python
 *It is my repo with useful tips, examples of scripts and theory of programming.*
 
-*Also, there are my solved tasks from Codewars, LeetCode, etc. Link is below.*
+*Also, there are my solved tasks from Codewars, LeetCode, Labs from my university etc. Link is below.*
 
 **[My solved tasks](Tasks)**
 
