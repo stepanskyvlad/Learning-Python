@@ -1,5 +1,5 @@
 # Solved Tasks
-**there are my solved tasks from Codewars, LeetCode, Labs from my university etc.**
+**There are my solved tasks from Codewars, LeetCode, Labs from my university etc.**
 
 ## Lab numbers and topics:
 1. **[Codewars](Codewars)** : *Solved tasks from Codewars using Python*
