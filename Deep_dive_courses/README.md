@@ -1,1 +1,0 @@
-# This is folder with information and code from Deep Dive courses in Udemy
